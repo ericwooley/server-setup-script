@@ -91,4 +91,4 @@ echo "export EDITOR=vim" >>$HOME/.zshrc
 echo "export EDITOR=vim" >>$HOME/.bashrc
 
 # Add to the login message to tell user to use worker account.
-sudo cat custom-message.md >/etc/update-motd.d/99-custom-welcome
+# sudo cat custom-message.md >/etc/update-motd.d/99-custom-welcome
