@@ -49,12 +49,12 @@ fi
 ## install nvm for worker
 
 echo "Installing nvm"
-sudo su - worker
+sudo su - worker /bin/bash -c "<<EOF
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 source ~/.zshrc
 nvm install 20
 nvm alias default 20
-logout # exit worker shell
+EOF"
 
 ## install nvm for current user
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
