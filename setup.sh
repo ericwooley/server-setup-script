@@ -52,7 +52,7 @@ if ! command -v node >/dev/null || [[ $(node --version) != *"v20"* ]]; then
 fi
 
 echo "Installing playwright dependencies"
-sudo npx playwright install-deps
+sudo npx --yes playwright install-deps
 
 echo "Installing nvm"
 sudo cp ./shell-setup.sh /home/worker/shell-setup.sh
