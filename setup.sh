@@ -55,6 +55,7 @@ echo "source ~/.nvm/nvm.sh" >>~/.zshrc
 source ~/.zshrc
 nvm install 20
 nvm alias default 20
+nvm use default
 EOF"
 
 echo "Installing nvm for worker"
@@ -64,9 +65,13 @@ echo "source ~/.nvm/nvm.sh" >>~/.zshrc
 source ~/.zshrc
 nvm install 20
 nvm alias default 20
+nvm use default
 
 # add spaceship prompt
+echo "Installing spaceship prompt"
 npm install -g spaceship-prompt
+
+# add spaceship prompt for worker
 sudo -u worker npm install -g spaceship-prompt
 
 # make vim the default editor for worker, and my account
