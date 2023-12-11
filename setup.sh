@@ -32,9 +32,11 @@ sudo usermod -aG docker $USER
 sudo usermod -aG docker worker
 
 # change "worker" to use zsh
+touch /home/worker/.zshrc
 sudo chsh -s /usr/bin/zsh worker
 
 # change shell for current user
+touch ~/.zshrc
 sudo chsh -s /usr/bin/zsh $USER
 
 ## install node 20
