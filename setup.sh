@@ -65,8 +65,8 @@ nvm install 20
 nvm alias default 20
 nvm use default
 "
-cd /home/ericwooley
-echo "$HOME"
+sudo chown worker:worker -R /home/worker/
+
 echo "Installing nvm for worker"
 ## install nvm for current user
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
