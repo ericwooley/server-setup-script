@@ -24,7 +24,7 @@ echo "Setting up unattended-upgrades"
 sudo dpkg-reconfigure -pmedium unattended-upgrades
 
 # create a new user named "worker" with home directory
-sudo useradd -m worker
+sudo useradd -m worker || exit 0 # probably already exists
 
 # Create a docker group and add worker to it
 sudo groupadd docker
