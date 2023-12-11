@@ -38,8 +38,11 @@ sudo chsh -s /usr/bin/zsh worker
 sudo chsh -s /usr/bin/zsh $USER
 
 ## install node 20
-echo "Installing node 20"
-sudo snap install node --classic --channel=20
+# if node is not installed or the node version does not equal 20, skip this
+if ! command -v node >/dev/null || [[ $(node --version) != *"v20"* ]]; then
+  echo "Installing node 20"
+  sudo snap install node --classic --channel=20
+fi
 
 ## install nvm for worker
 echo "Installing nvm"
