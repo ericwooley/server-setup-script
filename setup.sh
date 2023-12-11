@@ -51,6 +51,7 @@ fi
 echo "Installing nvm for worker"
 sudo chown worker:worker -R /home/worker/
 sudo -u worker /bin/bash -c "
+cd /home/worker
 echo \"Installing nvm for worker in $HOME\"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 echo \"source ~/.nvm/nvm.sh\" >>~/.zshrc
@@ -64,7 +65,7 @@ nvm install 20
 nvm alias default 20
 nvm use default
 "
-
+cd /home/$USER
 echo "Installing nvm for worker"
 ## install nvm for current user
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
