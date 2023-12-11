@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-
+export DEBIAN_FRONTEND=noninteractive
 # check that the github actions token is set $GH_ACTIONS_RUNNER_TOKEN
 if [[ -z "${GH_ACTIONS_RUNNER_TOKEN}" ]]; then
   echo "GH_ACTIONS_RUNNER_TOKEN is unset, use https://github.com/organizations/<your org>/settings/actions/runners/new?arch=x64&os=linux to get the setup token out of the github instructions"
