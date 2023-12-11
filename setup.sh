@@ -83,9 +83,9 @@ nvm use default
 
 # make vim the default editor for worker, and my account
 echo "Setting vim as default editor"
-echo "export EDITOR=vim" >>/home/worker/.zshrc
+sudo -u worker echo "export EDITOR=vim" >>/home/worker/.zshrc
 echo "export EDITOR=vim" >>/home/$USER/.zshrc
-echo "export EDITOR=vim" >>/home/worker/.bashrc
+sudo -u worker echo "export EDITOR=vim" >>/home/worker/.bashrc
 echo "export EDITOR=vim" >>/home/$USER/.bashrc
 
 # Add to the login message to tell user to use worker account.
