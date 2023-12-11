@@ -49,35 +49,37 @@ fi
 ## install nvm for worker
 
 echo "Installing nvm for worker"
-sudo su - worker /bin/bash -c "<<EOF
+sudo su - worker /bin/bash -c <<EOF
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 echo "source ~/.nvm/nvm.sh" >>~/.zshrc
-source ~/.zshrc
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.zsh/spaceship"
+source "$HOME/.zsh/spaceship/spaceship.zsh"
 nvm install 20
 nvm alias default 20
 nvm use default
-EOF"
+EOF
 
 echo "Installing nvm for worker"
 ## install nvm for current user
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 echo "source ~/.nvm/nvm.sh" >>~/.zshrc
-source ~/.zshrc
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.zsh/spaceship"
+source "$HOME/.zsh/spaceship/spaceship.zsh"
 nvm install 20
 nvm alias default 20
 nvm use default
-
-# add spaceship prompt
-echo "Installing spaceship prompt"
-npm install -g spaceship-prompt
-
-# add spaceship prompt for worker
-sudo -u worker npm install -g spaceship-prompt
 
 # make vim the default editor for worker, and my account
 echo "Setting vim as default editor"
 echo "export EDITOR=vim" >>/home/worker/.zshrc
 echo "export EDITOR=vim" >>/home/$USER/.zshrc
+echo "export EDITOR=vim" >>/home/worker/.bashrc
+echo "export EDITOR=vim" >>/home/$USER/.bashrc
 
 # Add to the login message to tell user to use worker account.
 sudo cat custom-message.md >/etc/update-motd.d/99-custom-welcome
