@@ -84,7 +84,7 @@ sudo ./remove-worker-sudo.sh
 
 echo "Installing nvm for worker"
 ## install nvm for current user
-./shell-setup.sh
+# ./shell-setup.sh
 
 # Add to the login message to tell user to use worker account.
 # sudo cat custom-message.md >/etc/update-motd.d/99-custom-welcome

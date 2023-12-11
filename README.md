@@ -18,3 +18,5 @@ GH_ACTIONS_RUNNER_TOKEN=<TOKEN> sudo -E ./setup.sh;
 ```bash
 sudo reboot;
 ```
+
+From now on, you can ssh into the machine as the "your regular user" user. You can also run commands as the worker user by using `sudo su - worker`, or you can switch to the worker user by running `sudo su - worker` and then run `exit` to switch back to your regular user.
