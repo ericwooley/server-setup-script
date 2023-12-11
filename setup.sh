@@ -50,14 +50,14 @@ fi
 
 echo "Installing nvm"
 sudo su - worker /bin/bash -c "<<EOF
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | zsh
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 source ~/.zshrc
 nvm install 20
 nvm alias default 20
 EOF"
 
 ## install nvm for current user
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | zsh
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 source ~/.zshrc
 nvm install 20
 nvm alias default 20
