@@ -15,6 +15,9 @@ if ! id "$USERNAME" &>/dev/null; then
   exit 1
 fi
 
+echo "Adding $USERNAME to sudoers"
+sudo usermod -aG sudo $USERNAME
+
 # File to be modified
 SUDOERS_FILE="/etc/sudoers"
 

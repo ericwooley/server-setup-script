@@ -7,8 +7,10 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 # Username to be removed from passwordless sudo access
-USERNAME="username"
+USERNAME="worker"
 
+echo "Removing $USERNAME from sudoers"
+sudo deluser $USERNAME sudo
 # File to be modified
 SUDOERS_FILE="/etc/sudoers"
 
