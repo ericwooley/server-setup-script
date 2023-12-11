@@ -49,6 +49,7 @@ fi
 ## install nvm for worker
 
 echo "Installing nvm for worker"
+sudo chown worker:worker -R /home/worker/
 sudo -u worker /bin/bash -c "
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 echo \"source ~/.nvm/nvm.sh\" >>~/.zshrc
