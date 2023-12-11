@@ -9,7 +9,7 @@ sudo apt-get update
 echo "Upgrading apt-get"
 sudo apt-get upgrade -y
 echo "Installing vim, git, and build-essential"
-sudo apt-get install -y vim git build-essential
+sudo apt-get install -y vim git build-essential zsh
 
 # install unattened upgrades
 echo "Installing unattended-upgrades"
