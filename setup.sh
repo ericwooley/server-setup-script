@@ -61,6 +61,7 @@ sudo chown worker:worker -R /home/worker/
 
 sudo ./give-worker-sudo.sh
 sudo -u worker /bin/bash -c "cd /home/worker && USER=worker HOME=/home/worker sudo -E ./shell-setup.sh"
+sudo -u worker /bin/bash -c "cd /home/worker && USER=worker HOME=/home/worker sudo -E ./github-actions-setup.sh"
 
 sudo ./remove-worker-sudo.sh
 
