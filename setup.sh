@@ -64,8 +64,8 @@ source ~/.nvm/nvm.sh
 nvm install 20
 nvm alias default 20
 nvm use default
-echo \\\"export EDITOR=vim\\\" >> .bashrc
-echo \\\"export EDITOR=vim\\\" >> .zshrc
+echo \"export EDITOR=vim\" >> .bashrc
+echo \"export EDITOR=vim\" >> .zshrc
 "
 
 echo "Installing nvm for worker"
