@@ -12,5 +12,5 @@ This will create a new user called "worker", setup the github self hosted runner
 ```bash
 git clone https://github.com/ericwooley/server-setup-script.git;
 cd server-setup-script;
-GH_ACTIONS_RUNNER_TOKEN=<TOKEN> sudo ./setup.sh;
+GH_ACTIONS_RUNNER_TOKEN=<TOKEN> sudo -E ./setup.sh;
 ```
