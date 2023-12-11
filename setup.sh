@@ -45,13 +45,14 @@ if ! command -v node >/dev/null || [[ $(node --version) != *"v20"* ]]; then
 fi
 
 ## install nvm for worker
+
 echo "Installing nvm"
 sudo su - worker
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 source ~/.zshrc
 nvm install 20
 nvm alias default 20
-exit # exit worker shell
+logout # exit worker shell
 
 ## install nvm for current user
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
