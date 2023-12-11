@@ -65,7 +65,6 @@ nvm install 20
 nvm alias default 20
 nvm use default
 "
-sudo chown worker:worker -R /home/worker/
 
 echo "Installing nvm for worker"
 ## install nvm for current user
@@ -83,10 +82,12 @@ nvm use default
 
 # make vim the default editor for worker, and my account
 echo "Setting vim as default editor"
-sudo -u worker echo "export EDITOR=vim" >>/home/worker/.zshrc
+sudo echo "export EDITOR=vim" >>/home/worker/.zshrc
 echo "export EDITOR=vim" >>/home/$USER/.zshrc
-sudo -u worker echo "export EDITOR=vim" >>/home/worker/.bashrc
+sudo echo "export EDITOR=vim" >>/home/worker/.bashrc
 echo "export EDITOR=vim" >>/home/$USER/.bashrc
 
 # Add to the login message to tell user to use worker account.
 sudo cat custom-message.md >/etc/update-motd.d/99-custom-welcome
+sudo chown worker:worker -R /home/worker/
+sudo chown $USER:$USER -R $HOME
