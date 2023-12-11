@@ -46,19 +46,17 @@ if ! command -v node >/dev/null || [[ $(node --version) != *"v20"* ]]; then
   sudo snap install node --classic --channel=20
 fi
 
-## install nvm for worker
-
-echo "Installing nvm for worker"
+echo "Installing nvm"
 sudo cp ./shell-setup.sh /home/worker/shell-setup.sh
 sudo chown worker:worker -R /home/worker/
 
 sudo ./give-worker-sudo.sh
-sudo -u worker /bin/bash -c "cd /home/worker && sudo ./shell-setup.sh"
+sudo -u worker /bin/bash -c "cd /home/worker && ./shell-setup.sh"
 sudo ./remove-worker-sudo.sh
 
 echo "Installing nvm for worker"
 ## install nvm for current user
-sudo ./shell-setup.sh
+./shell-setup.sh
 
 # Add to the login message to tell user to use worker account.
 # sudo cat custom-message.md >/etc/update-motd.d/99-custom-welcome
