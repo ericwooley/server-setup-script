@@ -56,6 +56,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 echo \"source ~/.nvm/nvm.sh\" >>~/.zshrc
 export NVM_DIR=\\\"\$([ -z \\\"\${XDG_CONFIG_HOME-}\\\" ] && printf %s \\\"\${HOME}/.nvm\\\" || printf %s \\\"\${XDG_CONFIG_HOME}/nvm\\\")\\\"
 [ -s \\\"\$NVM_DIR/nvm.sh\\\" ] && \\. \\\"\$NVM_DIR/nvm.sh\\\" # This loads nvm
+mkdir -p \\\"\$HOME/.zsh\\\" &&
 git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git \\\"\$HOME/.zsh/spaceship\\\"
 source \\\"\$HOME/.zsh/spaceship/spaceship.zsh\\\"
 nvm install 20
