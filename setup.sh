@@ -66,6 +66,7 @@ nvm alias default 20
 nvm use default
 echo 'export EDITOR=vim' >> .bashrc
 echo 'export EDITOR=vim' >> .zshrc
+echo 'SPACESHIP_USER_SHOW=always' >> .zshrc
 "
 
 echo "Installing nvm for worker"
