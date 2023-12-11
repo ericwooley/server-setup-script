@@ -23,7 +23,7 @@ sudo dpkg-reconfigure -pmedium unattended-upgrades
 sudo useradd -m worker || echo "Failed to add 'worker' user, user probably already exists" # probably already exists
 
 # Create a docker group and add worker to it
-sudo groupadd docker
+sudo groupadd docker || echo "Failed to add docker group, group probably already exists" # probably already exists
 
 # add current user to docker group
 sudo usermod -aG docker $USER
