@@ -43,12 +43,15 @@ sudo snap install node --classic --channel=20
 
 ## install nvm for worker
 echo "Installing nvm"
-sudo -u worker bash -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | zsh"
-sudo -u worker zsh -c "source /home/worker/.zshrc && nvm install 20"
-sudo -u worker zsh -c "source /home/worker/.zshrc && nvm alias default 20"
+sudo su - worker
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+source ~/.zshrc
+nvm install 20
+nvm alias default 20
+exit # exit worker shell
 
 ## install nvm for current user
-bash -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | zsh"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 source ~/.zshrc
 nvm install 20
 nvm alias default 20
