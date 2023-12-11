@@ -3,8 +3,7 @@
 # strict mode
 set -euo pipefail
 
-$HOME=/home/$USER
-cd /home/$USER
+cd $HOME
 echo "Installing nvm for worker in $HOME"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 echo "source ~/.nvm/nvm.sh" >>~/.zshrc
