@@ -3,6 +3,12 @@
 # strict mode
 set -euo pipefail
 
+# check that the github actions token is set $GH_ACTIONS_RUNNER_TOKEN
+if [[ -z "${GH_ACTIONS_RUNNER_TOKEN}" ]]; then
+  echo "GH_ACTIONS_RUNNER_TOKEN is unset, use https://github.com/organizations/<your org>/settings/actions/runners/new?arch=x64&os=linux to get the setup token out of the github instructions"
+  exit 1
+fi
+
 # install vim, git, and development tools
 echo "Updating apt-get"
 sudo apt-get update
@@ -46,12 +52,17 @@ if ! command -v node >/dev/null || [[ $(node --version) != *"v20"* ]]; then
   sudo snap install node --classic --channel=20
 fi
 
+echo "Installing playwright dependencies"
+sudo npx playwright install-deps
+
 echo "Installing nvm"
 sudo cp ./shell-setup.sh /home/worker/shell-setup.sh
+sudo cp ./github-actions-setup.sh /home/worker/github-actions-setup.sh
 sudo chown worker:worker -R /home/worker/
 
 sudo ./give-worker-sudo.sh
 sudo -u worker /bin/bash -c "cd /home/worker && ./shell-setup.sh"
+
 sudo ./remove-worker-sudo.sh
 
 echo "Installing nvm for worker"
