@@ -49,7 +49,7 @@ fi
 ## install nvm for worker
 
 echo "Installing nvm for worker"
-sudo su - worker /bin/bash -c <<EOF
+sudo su -u worker /bin/bash -c <<EOF
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 echo "source ~/.nvm/nvm.sh" >>~/.zshrc
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
