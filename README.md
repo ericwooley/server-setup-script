@@ -14,3 +14,7 @@ git clone https://github.com/ericwooley/server-setup-script.git;
 cd server-setup-script;
 GH_ACTIONS_RUNNER_TOKEN=<TOKEN> sudo -E ./setup.sh;
 ```
+3. You should now see the runner in your organization settings. However, you may want to restart the machine, after all the major changes we made.
+```bash
+sudo reboot;
+```
