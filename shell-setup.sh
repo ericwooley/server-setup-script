@@ -4,7 +4,12 @@
 set -euo pipefail
 
 cd $HOME
-echo "Installing nvm for worker in $HOME"
+
+# change shell for current user
+touch ~/.zshrc
+sudo chsh -s /usr/bin/zsh $USER
+
+echo "Installing nvm for $USER in $HOME"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 echo "source ~/.nvm/nvm.sh" >>~/.zshrc
 
